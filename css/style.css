@@ -32,8 +32,8 @@ footer {
 /* Yêu cầu 5.1: Lưới 1 cột với khoảng cách 10px giữa các hàng và cột */
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr; /* Lưới 1 cột */
-    gap: 10px;                  /* Khoảng cách 10px giữa hàng và cột */
+    grid-template-columns: 1fr;
+    gap: 10px;
 }
 
 /* Kiểu dáng cho các thẻ figure và hình ảnh */
@@ -69,11 +69,12 @@ figcaption p {
     line-height: 1.5;
     color: #555555;
 }
+
 /* ==========================================================================
    2. CHẾ ĐỘ MÁY TÍNH BẢNG (TABLET VIEW) - Kích hoạt từ 772px
    ========================================================================== */
 @media screen and (min-width: 772px) {
-    /* Yêu cầu 6.1: Sử dụng lưới 2 cột (không lặp lại gap hay display: grid) */
+    /* Yêu cầu 6.1: Sử dụng lưới 2 cột */
     .grid-container {
         grid-template-columns: 1fr 1fr;
     }
@@ -81,7 +82,7 @@ figcaption p {
     /* Yêu cầu 6.2: Đặt bán kính đường viền trên các thẻ figure để tạo hình tròn */
     figure {
         border-radius: 50%;
-        padding: 35px; /* Thêm khoảng đệm để nội dung nằm gọn bên trong hình tròn */
+        padding: 35px;
         overflow: hidden;
     }
 
