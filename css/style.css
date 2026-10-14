@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CẤU HÌNH CƠ BẢN VÀ MOBILE-FIRST (Mặc định cho thiết bị di động)
+   1. CẤU HÌNH CƠ BẢN VÀ MOBILE-FIRST (Mặc định cho thiết bị di động - Yêu cầu 5)
    ========================================================================== */
 
 /* Thiết lập scroll-behavior mặc định */
@@ -36,7 +36,7 @@ footer {
     gap: 10px;
 }
 
-/* Kiểu dáng cho các thẻ figure và hình ảnh */
+/* Kiểu dáng các thẻ figure và ảnh ở di động */
 figure {
     margin: 0;
     padding: 15px;
@@ -70,8 +70,9 @@ figcaption p {
     color: #555555;
 }
 
+
 /* ==========================================================================
-   2. CHẾ ĐỘ MÁY TÍNH BẢNG (TABLET VIEW) - Kích hoạt từ 772px
+   2. TRUY VẤN PHƯƠNG TIỆN 1: MÁY TÍNH BẢNG (TABLET - 772px - Yêu cầu 6)
    ========================================================================== */
 @media screen and (min-width: 772px) {
     /* Yêu cầu 6.1: Sử dụng lưới 2 cột */
@@ -79,7 +80,7 @@ figcaption p {
         grid-template-columns: 1fr 1fr;
     }
 
-    /* Yêu cầu 6.2: Đặt bán kính đường viền trên các thẻ figure để tạo hình tròn */
+    /* Yêu cầu 6.2: Đặt bán kính đường viền trên các hình để tạo hình tròn */
     figure {
         border-radius: 50%;
         padding: 35px;
@@ -90,8 +91,59 @@ figcaption p {
         border-radius: 50%;
     }
 
-    /* Yêu cầu 6.3: Đặt hình cuối cùng (Phở Bò) chiếm cả hai cột */
+    /* Yêu cầu 6.3: Đặt con số cuối cùng chiếm cả hai cột */
     figure:last-child {
         grid-column: span 2;
+    }
+}
+
+
+/* ==========================================================================
+   3. TRUY VẤN PHƯƠNG TIỆN 2: MÀN HÌNH LỚN (DESKTOP - 992px - Yêu cầu 7)
+   ========================================================================== */
+@media screen and (min-width: 992px) {
+    /* Hủy quy tắc span 2 cột của hình cuối cùng từ Tablet */
+    figure:last-child {
+        grid-column: auto;
+    }
+
+    /* Yêu cầu 7.1: Đặt mỗi con số thứ ba chiếm cả hai cột */
+    figure:nth-child(3n) {
+        grid-column: span 2;
+    }
+
+    /* Yêu cầu 7.2: Xóa bán kính đường viền khỏi tất cả các hình (Không dùng max-width) */
+    figure, 
+    figure img {
+        border-radius: 0;
+    }
+}
+
+
+/* ==========================================================================
+   4. TRUY VẤN PHƯƠNG TIỆN 3: GIẢM CHUYỂN ĐỘNG (PREFERS REDUCED MOTION - Yêu cầu 8)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    /* Yêu cầu 8.1: Xóa hành vi cuộn mượt */
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+
+/* ==========================================================================
+   5. TRUY VẤN PHƯƠNG TIỆN 4: BẢNG MÀU TỐI (PREFERS COLOR SCHEME DARK - Yêu cầu 9)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+    /* Yêu cầu 9.1 & 9.3: Màu nền tối và đường viền màu đen */
+    figure {
+        background-color: #222222;
+        border-color: #000000;
+    }
+
+    /* Yêu cầu 9.2: Đổi màu phông chữ của hình thành màu nhạt hơn (vàng) */
+    figcaption h2, 
+    figcaption p {
+        color: #ffff00;
     }
 }
