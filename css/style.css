@@ -69,3 +69,28 @@ figcaption p {
     line-height: 1.5;
     color: #555555;
 }
+/* ==========================================================================
+   2. CHẾ ĐỘ MÁY TÍNH BẢNG (TABLET VIEW) - Kích hoạt từ 772px
+   ========================================================================== */
+@media screen and (min-width: 772px) {
+    /* Yêu cầu 6.1: Sử dụng lưới 2 cột (không lặp lại gap hay display: grid) */
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Yêu cầu 6.2: Đặt bán kính đường viền trên các thẻ figure để tạo hình tròn */
+    figure {
+        border-radius: 50%;
+        padding: 35px; /* Thêm khoảng đệm để nội dung nằm gọn bên trong hình tròn */
+        overflow: hidden;
+    }
+
+    figure img {
+        border-radius: 50%;
+    }
+
+    /* Yêu cầu 6.3: Đặt hình cuối cùng (Phở Bò) chiếm cả hai cột */
+    figure:last-child {
+        grid-column: span 2;
+    }
+}
